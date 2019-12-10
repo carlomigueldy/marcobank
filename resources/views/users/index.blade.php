@@ -6,7 +6,7 @@
     @elseif ($message = Session::get('error'))
         <div class="alert alert-danger">{{ $message }}</div>
     @endif
-    <div class="card">
+    <div class="card bg-dark text-white">
         <div class="card-body">
             <div class="float-left">
                 <h3>Users</h3>
@@ -15,7 +15,7 @@
                 <a href="{{ route('users.create') }}" class="btn btn-success">Add</a>
             </div>
         </div>
-        <table class="table text-center">
+        <table class="table text-center text-white">
             <thead>
                 <th>Name</th>
                 <th>Email</th>

@@ -17,7 +17,7 @@
         <div class="alert alert-danger">{{ $message }}</div>
     @enderror
 
-    <div class="card">
+    <div class="card bg-dark text-white">
         <div class="card-header">Add Account</div>
         <div class="card-body">
             <form action="{{ route('accounts.store') }}" method="post">

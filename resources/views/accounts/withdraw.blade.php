@@ -6,7 +6,7 @@
     @elseif ($message = Session::get('error'))
         <div class="alert alert-danger">{{ $message }}</div>
     @endif
-    <div class="card">
+    <div class="card bg-dark text-white">
         <div class="card-header">Withdraw</div>
         <div class="card-body">
             <form action="{{ route('accounts.accountWithdraw', $account->id) }}" method="post">

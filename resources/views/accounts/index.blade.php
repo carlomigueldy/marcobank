@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="card">
+<div class="card bg-dark text-white">
     <div class="card-body">
         <div class="float-left">
             <h3>Accounts</h3>
@@ -10,7 +10,7 @@
             <a href="{{ route('accounts.create') }}" class="btn btn-success">Add</a>
         </div>
     </div>
-    <table class="table text-center">
+    <table class="table text-center text-white">
         <thead>
             <th>Name</th>
             <th>Email</th>

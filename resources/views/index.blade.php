@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Ironforge Bank</title>
+        <title>Conquer 2.0 Bank</title>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <style>
             html, body {
@@ -13,6 +13,9 @@
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
+                background-image: url("{{ asset('img/bank.jpeg') }}");
+                background-size: cover;
+                background-repeat: no-repeat;
             }
 
             .full-height {
@@ -41,6 +44,7 @@
 
             .title {
                 font-size: 84px;
+                color: red;
             }
 
             .links > a {
@@ -72,7 +76,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Ironforge Bank
+                    BDO
                 </div>
             </div>
         </div>

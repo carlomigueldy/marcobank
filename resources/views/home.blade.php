@@ -15,7 +15,7 @@
                 <div class="alert alert-danger">{{ $message }}</div>
             @endif
         
-            <div class="card">
+            <div class="card bg-dark text-white">
                 <div class="card-header">Dashboard</div>
 
                 @if ($role->id != 4)

@@ -9,18 +9,29 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+    html, body {
+        background-color: #fff;
+        color: #636b6f;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 200;
+        height: 100vh;
+        margin: 0;
+        background-image: url("{{ asset('img/bank.jpeg') }}");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    </style>
 </head>
 <body>
     <div id="app">
         @include('includes.nav')
+        @include('includes.sidenav')
 
         @if (Auth::check())
-        <div class="py-4 container">
+        <div class="py-4 container-fluid">
             <div class="row">
-                <div class="col-lg-3">
-                        @include('includes.sidenav')
-                </div>
-                <div class="col-lg-9">
+                <div class="col">
                     <main>
                         @yield('content')
                     </main>
