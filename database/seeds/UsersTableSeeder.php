@@ -14,16 +14,16 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $user = User::create([
-            'name' => 'Jamm Cagalawan',
+            'name' => 'Marco Marcilinog',
             'role_id' => 1,
-            'email' => 'jamm@admin.com',
+            'email' => 'marco@admin.com',
             'password' => bcrypt('password'),
         ]);
 
         $user = User::create([
-            'name' => 'Elon Musk',
+            'name' => 'Maricnaitskxz',
             'role_id' => 2,
-            'email' => 'elon@gmail.com',
+            'email' => 'maric@gmail.com',
             'password' => bcrypt('password'),
         ]);
 
@@ -35,9 +35,9 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $user = User::create([
-            'name' => 'Tony Stark',
+            'name' => 'Bruce Wayne',
             'role_id' => 4,
-            'email' => 'tony@stark.com',
+            'email' => 'bruce@wayne.com',
             'password' => bcrypt('password'),
         ]);
 
