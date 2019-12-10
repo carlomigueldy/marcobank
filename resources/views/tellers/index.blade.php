@@ -14,17 +14,17 @@
         <thead>
             <th>Name</th>
             <th>Email</th>
-            <th>Actions</th>
+            {{-- <th>Actions</th> --}}
         </thead>
         <tbody>
             @foreach($tellers as $teller)
             <tr>
                 <td>{{ $teller->name }}</td>
                 <td>{{ $teller->email }}</td>
-                <td>
+                {{-- <td>
                     <a href="{{ route('tellers.edit', $teller->id) }}" class="btn btn-primary">Edit</a>
                     <a href="{{ route('tellers.destroy', $teller->id) }}" class="btn btn-danger">Delete</a>
-                </td>
+                </td> --}}
             </tr>
             @endforeach
         </tbody>    
