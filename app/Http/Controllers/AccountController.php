@@ -28,10 +28,10 @@ class AccountController extends Controller
         
         $account = Account::findOrFail($id);
 
-        $account->balance += $request->balance;
+        $account->balance += $request->amount;
         $account->save();
 
-        return redirect()->back()->with('success', 'The amount was deposited.');
+        return redirect()->back()->with('success', 'Php ' . $request->amount . ' amount was deposited.');
     }
 
     /**
@@ -47,10 +47,13 @@ class AccountController extends Controller
         
         $account = Account::findOrFail($id);
 
-        $account->balance -= $request->balance;
+        if ($request->amount > $account->balance) {
+            return redirect()->back()->with('error', 'The requested amount is higher than the account balance.');
+        }
+        $account->balance -= $request->amount;
         $account->save();
 
-        return redirect()->back()->with('success', 'The amount was withdrawn.');
+        return redirect()->back()->with('success', 'Php ' . $request->amount . ' amount was withdrawn.');
     }
 
     public function create()

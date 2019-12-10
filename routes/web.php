@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth')->group(function () {
+    Route::post('accounts/withdraw/{account}', 'AccountController@accountWithdraw')->name('accounts.accountWithdraw');
+    
     Route::middleware('admin')->group(function () {
         Route::get('users', 'UserController@index')->name('users.index');
         Route::post('users', 'UserController@store')->name('users.store');
@@ -26,7 +28,7 @@ Route::middleware('auth')->group(function () {
         Route::put('users/{user}', 'UserController@update')->name('users.update');
     });
 
-    Route::middleware(['admin', 'manager'])->group(function () {
+    Route::middleware('manager')->group(function () {
         Route::get('tellers', 'TellerController@index')->name('tellers.index');
         Route::post('tellers', 'TellerController@store')->name('tellers.store');
         Route::get('tellers/create', 'TellerController@create')->name('tellers.create');
@@ -36,14 +38,27 @@ Route::middleware('auth')->group(function () {
         Route::put('tellers/{user}', 'TellerController@update')->name('tellers.update');
     });
 
-    Route::middleware(['admin', 'manager', 'teller'])->group(function () {
+    Route::middleware('teller')->group(function () {
         Route::get('accounts', 'AccountController@index')->name('accounts.index');
         Route::post('accounts', 'AccountController@store')->name('accounts.store');
         Route::get('accounts/create', 'AccountController@create')->name('accounts.create');
-        Route::get('accounts/{user}', 'AccountController@show')->name('accounts.show');
-        Route::delete('accounts/{user}', 'AccountController@destroy')->name('accounts.destroy');
-        Route::get('accounts/{user}', 'AccountController@edit')->name('accounts.edit');
-        Route::put('accounts/{user}', 'AccountController@update')->name('accounts.update');
+        Route::get('accounts/{account}', 'AccountController@show')->name('accounts.show');
+        Route::delete('accounts/{account}', 'AccountController@destroy')->name('accounts.destroy');
+        Route::get('accounts/{account}', 'AccountController@edit')->name('accounts.edit');
+        Route::put('accounts/{account}', 'AccountController@update')->name('accounts.update');
+        Route::post('accounts/deposit/{account}', 'AccountController@accountDeposit')->name('accounts.accountDeposit');
+        Route::get('accounts/withdraw/{account}', function ($id) {
+            $account = App\Account::find($id);
+            $account->user;
+
+            return view('accounts.withdraw', compact('account'));
+        })->name('accounts.withdrawView');
+        Route::get('accounts/deposit/{account}', function ($id) {
+            $account = App\Account::find($id);
+            $account->user;
+
+            return view('accounts.deposit', compact('account'));
+        })->name('accounts.depositView');
     });
 });
 

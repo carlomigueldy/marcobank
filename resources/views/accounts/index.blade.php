@@ -24,7 +24,8 @@
                 <td>{{ $account->user->email }}</td>
                 <td>Php {{ $account->balance }}</td>
                 <td>
-                    <a href="{{ route('accounts.edit', $account->id) }}" class="btn btn-primary">Edit</a>
+                    <a href="{{ route('accounts.withdrawView', $account->id) }}" class="btn btn-primary">Withdraw</a>
+                    <a href="{{ route('accounts.depositView', $account->id) }}" class="btn btn-success">Deposit</a>
                     <a href="{{ route('accounts.destroy', $account->id) }}" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
