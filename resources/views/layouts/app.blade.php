@@ -14,10 +14,11 @@
     <div id="app">
         @include('includes.nav')
 
+        @if (Auth::check())
         <div class="py-4 container">
             <div class="row">
                 <div class="col-lg-3">
-                    @include('includes.sidenav')
+                        @include('includes.sidenav')
                 </div>
                 <div class="col-lg-9">
                     <main>
@@ -26,6 +27,11 @@
                 </div>
             </div>
         </div>
+        @else
+            <main class="py-4">
+                @yield('content')
+            </main>
+        @endif
 
     </div>
 </body>
