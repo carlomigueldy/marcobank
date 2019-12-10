@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Teller;
+use App\User;
 use Illuminate\Http\Request;
 
 class TellerController extends Controller
 {
     public function index()
     {
-        $tellers = Teller::with('users')->get();
+        $tellers = User::where('role_id', 3)->get();
 
         return view('tellers.index', compact('tellers'));
     }
@@ -43,7 +43,7 @@ class TellerController extends Controller
 
     public function show($id)
     {
-        $teller = Teller::find($id);
+        $teller = User::find($id);
         $teller->user;
 
         return view('tellers.show', compact('teller'));
@@ -51,15 +51,15 @@ class TellerController extends Controller
 
     public function edit($id)
     {
-        $teller = Teller::find($id);
+        $teller = User::find($id);
         $teller->user;
 
-        return view('telelrs.edit', compact('teller'));
+        return view('tellers.edit', compact('teller'));
     }
 
     public function destroy($id)
     {
-        $teller = Teller::find($id);
+        $teller = User::find($id);
 
         if ($teller->delete()) {
             return redirect()->back()->with('success', 'A Teller was deleted successfully.');

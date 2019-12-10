@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::middleware('auth')->group(function () {
@@ -46,3 +46,7 @@ Route::middleware('auth')->group(function () {
         Route::put('accounts/{user}', 'AccountController@update')->name('accounts.update');
     });
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
